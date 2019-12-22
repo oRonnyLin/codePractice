@@ -10,6 +10,13 @@ function isBelowTarget (value1, value2) {
     return false
   }
 }
+
+/*
+1. Compute all combination of sums from the two arrays
+2. Check if the sum meets the criteria, if it does, check if it is bigger or equal to the current max sum
+3. if it is bigger, then set max to this sum and record its combination
+4. if it is equal, then include this combination
+*/
 function optimalUtilization (a, b, target) {
   if (a === [] || b === []) {
     return []
@@ -26,11 +33,6 @@ function optimalUtilization (a, b, target) {
         } else if (evalu === max) {
           pair.push([a[i][0], b[j][0]])
         }
-        // if (!pair[eval]) {
-        //     pair[eval] = [[a[i][0],b[j][0]]]
-        // } else {
-        //     pair[eval].push([a[i][0],b[j][0]])
-        // }
       }
     }
   }

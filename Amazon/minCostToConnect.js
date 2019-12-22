@@ -1,4 +1,10 @@
 const ropes = [0, 3, 4, 5, 6, 7, 1, 23, 5, 5, 6, 1, 3, 2]
+/*
+1. sort rope from smallest to largest
+2. take the first 2 elements and compute their cost
+3. insert the cost to the original array but maintain the sorted order
+4. continue until all the ropes have been connected
+*/
 function minCostToConnectRopes (ropes) {
   if (ropes.length === 1) {
     return ropes[0]

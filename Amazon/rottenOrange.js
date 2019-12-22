@@ -18,6 +18,15 @@ const isNeighborOrange = function (coordX, coordY, maxX, maxY, grid) {
   console.log(`neighbors: ${neighbors}`)
   return false
 }
+
+/**
+ * 1. Go through the grid first and record the number of fresh oranges as well as the location of all rotten oranges
+ * 2. While going through the grid, check if there is an orange that does not have any neighboring oranges,
+ *    if so, this orange will not be affected by any rotten oranges and return -1
+ * 3. Otherwise, use BFS and at each step, calculate the effects of all rotten oranges that exist at that point in time
+ *    and increment step. Check if there are fresh oranges left and that there are rotten oranges left. if so, continue
+ * 4. Otherwise, return the steps or -1 if there are still fresh oranges but no rotten oranges.
+ */
 var orangesRotting = function (grid) {
   let numFreshOrange = 0
   let minutesElapsed = 0

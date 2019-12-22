@@ -27,7 +27,9 @@ const dfs = function (grid, curCord) {
 var numIslands = function (grid) {
   let numIslands = 0
 
-  // Visit each cell in the grid and mark them as visited. If it is a land, then recursively visit all lands connected to this land right away. We skip the lands we have visited.
+  // Visit each cell in the grid and mark them as visited.
+  // If it is a land, then recursively visit all lands connected to this land right away.
+  // We skip the lands we have visited.
 
   for (let row = 0; row < grid.length; row++) {
     for (let column = 0; column < grid[0].length; column++) {

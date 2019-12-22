@@ -12,6 +12,10 @@ function create2DArray (x, y) {
   }
   return result
 }
+/*
+1. Starting at the start cell, use BFS to traverse the whole grid
+2. After each BFS step, increment the step counter if we have not seen the treasure
+*/
 function findMinRoute (treasureMap) {
   const visited = create2DArray(treasureMap.length, treasureMap[0].length)
   const queue = [[0, 0]]

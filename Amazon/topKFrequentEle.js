@@ -2,37 +2,19 @@
  * @param {number[]} nums
  * @param {number} k
  * @return {number[]}
+ *
+ * 1. Go through the array and record the number of times each element occurs
+ * 2. Put the counted numbers into an array and sort them based on the number of occurences
+ * 3. slice to top k elements and return the number.
  */
 var topKFrequent = function (nums, k) {
   const counts = {}
-  // let mostFreqEle = {}
-  // let mostFreqEleQueue = []
-  // let lowestMostFreqCount = 0
   for (let i = 0; i < nums.length; i++) {
     if (!counts[nums[i]]) {
       counts[nums[i]] = 1
     } else {
       counts[nums[i]]++
     }
-    // if (counts[nums[i]] > lowestMostFreqCount) {
-    //     if(mostFreqEleQueue.length === k) {
-    //         if(!mostFreqEle[nums[i]]){
-    //             const eleToRm = mostFreqEleQueue.shift()
-    //             delete mostFreqEle[eleToRm]
-    //         } else {
-    //             let index = mostFreqEleQueue.indexOf(nums[i])
-    //             mostFreqEleQueue.splice(index,1)
-    //         }
-    //         mostFreqEleQueue.push(nums[i])
-    //         mostFreqEle[nums[i]] = counts[nums[i]]
-    //         lowestMostFreqCount = mostFreqEle[mostFreqEleQueue[0]]
-    //     } else {
-    //         if(!mostFreqEle[nums[i]]) {
-    //             mostFreqEleQueue.unshift(nums[i])
-    //         }
-    //         mostFreqEle[nums[i]] = counts[nums[i]]
-    //     }
-    // }
   }
   const numArr = []
   for (const num in counts) {

@@ -46,16 +46,22 @@ const buildGraph = function (n, connections) {
   return graph
 }
 
+/*
+1. Create an object that represents a graph. Each node of the graph is a property that is represented with another object.
+   The node object has value, a list of nodes that it is connected to, rank property and minrank property.
+2. Use DFS to traverse this graph from an arbituary first element. When arriving at a node, set its rank and minRank, increment rank by one and mark this node as visited.
+   Rank is timestamp which tells DFS when it traversed the node.
+3. Check the current node's connected nodes. If the connected node has been visited, see if it has a shorter route to the current node by checking its minRank. Set current node's minRank
+   if it does.
+4. Otherwise, use DFS on its connected nodes to check if there is a shorter route to the current node.
+5. If the rank of current node is smaller than the minimum rank of its children, then there is no other passage from the current node to its children except for the edge that they share,
+   so this edge must be a critical connection.
+*/
 var criticalConnections = function (n, connections) {
-  // let paths = Array.from({length: n}, () => { return Array.from({length:n})})
   const graph = buildGraph(n, connections)
   const critCon = []
   let rank = 0
   const visited = new Set()
-  // let sortedCon = connections.map(edge => {
-  //     return edge[0] > edge[1] ? [edge[1],edge[0]] : [edge[0], edge[1]]
-  // })
-  // console.log('graph before: ',graph)
   function dfs (node, parent) {
     node.rank = rank
     node.minRank = rank
@@ -82,17 +88,4 @@ var criticalConnections = function (n, connections) {
   dfs(graph[0], graph[0].val)
   // console.log('graph after: ',graph)
   return critCon
-
-  // for (let i=0; i<connections.length; i++) {
-  //     const connectionToRemove = connections[i]
-  //     let visited = []
-  //     let paths = Array.from({length: n}, () => { return Array.from({length:n},() => true)})
-  //     const result = hasPath(connectionToRemove[0], connectionToRemove[1], connections, connectionToRemove, visited, paths)
-  //     if(result) {
-  //         continue
-  //     } else {
-  //         critCon.push(connectionToRemove)
-  //     }
-  // }
-  // return critCon
 }

@@ -1,6 +1,11 @@
 const numProducts = 5
 const repository = ['mobile', 'mouse', 'moneypot', 'monitor', 'mousepad']
 const customerQuery = 'mouse'
+
+/*
+1. Build a Trie using Object. Each property of the object is an alphabet and there is an additional property word.
+2. For each query, go through the trie to find all the words, sort them and return the first 3.
+*/
 function buildTrie (strings) {
   const trie = {}
   function buildTrieHelper (node, string, index) {
@@ -39,9 +44,6 @@ function findSuggestions (numProducts, repository, customerQuery) {
       const suggestions = []
       fetchAllWords(trieBegin, suggestions)
       const sorted = suggestions.sort((a, b) => { return a.localeCompare(b) })
-      if (sorted.length > 3) {
-        sorted.slice(0, 3)
-      }
       const suggestion = sorted.length > 3 ? sorted.slice(0, 3) : sorted
       result.push(suggestion)
       index++
