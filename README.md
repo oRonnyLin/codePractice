@@ -19,8 +19,10 @@
   * [Min step to treasure](https://leetcode.com/discuss/interview-question/347457)
   * [Find Pair with sum](https://leetcode.com/discuss/interview-question/356960)
   * [Point of Lattice](https://leetcode.com/discuss/interview-question/396418/)
+  * [Top N competitors](https://leetcode.com/problems/top-k-frequent-elements/)
 * [SDE Intern interview experience](https://leetcode.com/discuss/interview-question/437993/amazon-sde-intern-from-oa-to-offer)
 * [Amazon Behavior Questions](https://leetcode.com/discuss/interview-question/437082/amazon-behavioral-questions-leadership-principles-lp)
+* [interview tips from LC](https://leetcode.com/discuss/interview-question/455991/i-got-an-offer-from-amazon-sde-i-and-google-l3-heres-my-thoughts)
 
 
 ### Microsoft
