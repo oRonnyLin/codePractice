@@ -6,6 +6,9 @@
  * @param {*} word
  */
 function solution (word) {
+  if (word === '') {
+    return 2
+  }
   const arr = word.split('')
   let count = 0
   const length = arr.length
@@ -22,4 +25,4 @@ function solution (word) {
   return maxInserts + 2 - count
 }
 
-console.log(solution('doga'))
+console.log(solution('d'))
