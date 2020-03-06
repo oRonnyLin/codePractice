@@ -6,37 +6,41 @@
  * 5. after iterating, check if the last substring is the longest substring
  * @param {string} string
  */
-function solution (string) {
-  let prevChar = string[0]
+function solution (s) {
+  let prevChar = s[0]
   let currentCount = 0
-  const maxSubString = { length: Number.MIN_VALUE, idx: [0, 0] }
-  const curSubString = { length: 0, idx: [0, 0] }
-  for (let i = 0; i < string.length; i++) {
-    if (prevChar === string[i]) {
+  const maxSubs = { length: Number.MIN_VALUE, idx: [0, 0] }
+  const curSubs = { length: 0, idx: [0, 0] }
+  for (let i = 0; i < s.length; i++) {
+    if (prevChar === s[i]) {
       currentCount++
     } else {
       currentCount = 1
-      prevChar = string[i]
+      prevChar = s[i]
     }
     if (currentCount === 3) {
-      if (curSubString.length > maxSubString.length) {
-        maxSubString.length = curSubString.length
-        maxSubString.idx = [...curSubString.idx]
+      if (curSubs.length > maxSubs.length) {
+        maxSubs.length = curSubs.length
+        maxSubs.idx = [...curSubs.idx]
       }
-      curSubString.idx[0] = i - 1
-      curSubString.length = 2
+      curSubs.idx[0] = i - 1
+      curSubs.length = 2
       currentCount = 2
     } else {
-      curSubString.length = curSubString.length + 1
-      curSubString.idx[1] = i + 1
+      curSubs.length = curSubs.length + 1
+      curSubs.idx[1] = i + 1
     }
   }
-  if (curSubString.length > maxSubString.length) {
-    maxSubString.length = curSubString.length
-    maxSubString.idx = curSubString.idx
+  if (curSubs.length > maxSubs.length) {
+    maxSubs.length = curSubs.length
+    maxSubs.idx = curSubs.idx
   }
 
-  return string.slice(maxSubString.idx[0], maxSubString.idx[1])
+  return s.slice(maxSubs.idx[0], maxSubs.idx[1])
 }
 
-console.log(solution('aabbaaabbaabbaa'))
+// console.log(solution('abcabcbb'))
+x = {'foo': 'bar'}
+z = {'baz': x}
+y = z['baz']['foo']
+console.log(y)
