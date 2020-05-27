@@ -1,0 +1,25 @@
+Describe some data sets that you would use to test any proposed implementation and its accuracy.
+- An empty input array.
+- An input array with one order.
+- An input array with 2 orders that have the same toppings but different email. In one case, one of the emails is empty.
+- An input array with 2 3-topping pizza orders that have different combination of toppings and valid email address. Email address can be unique.
+- An input array with more than one order that has exactly one order with 3 toppings and valid email address. Cases can include all orders with less than 3 toppings except for one.
+- An input array with more than one order that does not have any order that satisfies 3 toppings or having a valid email address.
+- An input array with more than one order where the same email address can be found on multiple different unique 3-topping orders.
+
+Did you identify any bugs in these proposed implementations?
+- Yes
+- For the first implementation, the code is missing a check for the last traversed element when iterating through the array. If the last element is a valid winner, it will not be displayed.
+- For the second implementation, the code only keeps track of 3 topping orders that has a valid email address. An order with no email address can have the same combination of toppings as another order with a valid email address, which should invalidate the order with the valid email address.
+
+Once any small bugs are fixed, will either of these approaches give us the output we're looking for?
+- It will print out the valid winners, but there could be duplicate email addresses printed.
+
+What are some advantages or disadvantages of these approaches?
+- The first approach takes O(nlogn + n) time but uses O(1) space.
+- The second approach takes O(n) time but uses O(n) space.
+
+If we were querying a database instead of working with an in-memory structure, would we use a significantly different algorithm to find the
+winners? If so, how would you expect that algorithm to differ in performance and why?
+- We should but it depends on how the orders are stored. We can leverage database query engines to display the result instead.
+- If we leverage database query engines, the performance would depend on the CPU, network I/O, or disk I/O of the database server. I would expect the solution with database to have a better performance for datasets that are large.
